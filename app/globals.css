@@ -1,42 +1,76 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --pokemon-yellow: #ffcb05;
+  --pokemon-dark-green: #2e7d32;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.sidebar-title {
+  font-family: "Press Start 2P", cursive;
+}
+
+.btn-capture {
+  background-color: var(--pokemon-dark-green);
+  color: white;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: bold;
+}
+
+.btn-capture:hover {
+  background-color: #1b5e20;
+  color: white;
+}
+
+.card {
+  background-color: #1e1e1e !important;
+  border: 2px solid var(--pokemon-yellow) !important;
+}
+
+.empty-message {
+  color: #cccccc !important;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  padding: 3rem;
+}
+
+/* Sidebar fijo */
+.sidebar {
+  width: 280px;
+  background: #121212;
+  border-right: 5px solid var(--pokemon-yellow);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  padding-top: 40px;
+  overflow-y: auto;
+}
+
+/* ==== CORRECCIÓN RESPONSIVE ==== */
+@media (max-width: 991.98px) {
+  .sidebar {
+    display: none;
   }
-}
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  /* Quitar el margen izquierdo en móvil y añadir padding cómodo */
+  main {
+    margin-left: 0 !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  /* Espacio superior para que el botón de menú no tape el título */
+  main > section:first-of-type {
+    padding-top: 80px !important;
   }
 }
